@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!  #, only: [:new, :create]
 
   # GET /ideas
   # GET /ideas.json
@@ -26,6 +26,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @idea.user = current_user
 
     respond_to do |format|
       if @idea.save
