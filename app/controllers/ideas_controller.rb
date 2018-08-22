@@ -22,6 +22,20 @@ class IdeasController < ApplicationController
   def edit
   end
 
+#TESTING METHODS FOR TINDER LIKE USAGE
+  def like_idea
+    @idea.idea_likes << IdeaLike.new(params[:idea], liked = true)
+    redirect_to ideas_path
+  end
+
+  # def dislike_idea
+  #   keyword = Keyword.find(params[:keyword_id])
+  #   @company.keywords.delete(keyword)
+  #   redirect_to company_path
+  # end
+
+  # END TESTING METHODS
+
   # POST /ideas
   # POST /ideas.json
   def create

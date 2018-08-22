@@ -16,7 +16,8 @@ class IdeaLikesController < ApplicationController
   # GET /idea_likes/new
   def new
     @idea_like = IdeaLike.new
-    @idea_like.user = current_user
+    # @idea_like.user = current_user
+    # @idea_like.idea = idea_like_idea_id
   end
 
   # GET /idea_likes/1/edit
@@ -26,7 +27,7 @@ class IdeaLikesController < ApplicationController
   # POST /idea_likes
   # POST /idea_likes.json
   def create
-     
+
     @idea_like = IdeaLike.new(idea_like_params)
     @idea_like.user = current_user
 

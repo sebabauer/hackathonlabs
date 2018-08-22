@@ -5,9 +5,9 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
       }
 
-  resources :ideas
-
-  resources :idea_likes
+  resources :ideas do
+    resources :idea_likes
+  end
 
   root to: "ideas#index"
 
